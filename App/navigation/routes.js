@@ -7,4 +7,9 @@ export default Object.freeze({
   HOME_SCREEN: 'BottomTabs',
   PRODUCT_LIST_SCREEN: 'ProductListScreen',
   PRODUCT_DETAILS: 'ProductDetailsScreen',
+  PROFILE_STACK: 'ProfileStack',
+  PROFILE_SCREEN: 'ProfileHomeScreen',
+  USER_INFO: 'UserInfoScreen',
+  USER_ADDRESS: 'UserAddressScreen',
+  USER_PURCHASES: 'UserPurchasesScreen',
 });

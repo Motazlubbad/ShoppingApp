@@ -4,6 +4,7 @@ import {LoginFlowStack} from './LoginFlowStack';
 import {ProductsStack} from './ProductsStack';
 import {Icon} from '../theme';
 import {IconTypes} from '../theme/Icon';
+import {ProfileStack} from './ProfileStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -56,7 +57,7 @@ export const BottomTabs = () => {
             />
           ),
         }}
-        component={LoginFlowStack}
+        component={ProfileStack}
       />
     </Tab.Navigator>
   );
