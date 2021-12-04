@@ -6,9 +6,9 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import {mergeTheme, getMargins, getPaddings} from './utils';
 
 import expoTheme from './theme';
-import {mergeTheme, getMargins, getPaddings} from './utils';
 
 const Block = props => {
   const {
@@ -25,7 +25,6 @@ const Block = props => {
     card = false,
     shadow = null,
     elevation = 3,
-    loading = false,
     // colors
     color = null,
     primary = false,
@@ -49,7 +48,7 @@ const Block = props => {
     theme = {},
     // variations
     animated = false,
-    safe = true,
+    safe = false,
     scroll = false,
     children = null,
     // sizing props

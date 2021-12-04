@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import colors from '../config/colors';
-import {Block} from '../theme/index';
 
 const Separator = ({backgroundColor = colors.grey}) => {
   return (
