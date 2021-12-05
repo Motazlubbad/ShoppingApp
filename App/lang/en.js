@@ -33,6 +33,9 @@ const en = {
     products: 'Products',
     cart: 'Cart',
     profile: 'Profile',
+    addedToCart: 'Product added to cart',
+    emptyCart: 'Your cart is empty',
+    checkout: 'Checkout',
   },
 };
 export default en;

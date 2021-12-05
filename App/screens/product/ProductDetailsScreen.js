@@ -7,12 +7,13 @@ import useApi from '../../hooks/useApi';
 import {Block, Text} from '../../theme/index';
 import AppBlockWithLoading from '../../components/AppBlockWithLoading';
 import {useTranslation} from 'react-i18next';
-import {SIZES} from '../../theme/theme';
+import {useCartReducer} from '../../reducers/cartReducer';
+import AppAlert from '../../utils/AppAlert';
 
 const ProductDetailsScreen = ({route, navigation}) => {
   const id = route.params.id;
   const {t} = useTranslation();
-
+  const {addItem} = useCartReducer();
   const [productDetails, setProductDetails] = useState({});
   const productApi = useApi(product.getProductDetails);
   const getData = async () => {
@@ -50,7 +51,17 @@ const ProductDetailsScreen = ({route, navigation}) => {
           <Text bold>{t('product')}</Text> {productDetails?.product}
         </Text>
       </Block>
-      <AppButton marginTop title={t('addToCart')} />
+      <AppButton
+        marginTop
+        title={t('addToCart')}
+        onPress={() => {
+          AppAlert.okAlert({
+            title: productDetails?.name,
+            subTitle: t('addedToCart'),
+          });
+          addItem(productDetails);
+        }}
+      />
     </AppBlockWithLoading>
   );
 };

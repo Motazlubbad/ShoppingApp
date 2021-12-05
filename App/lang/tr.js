@@ -33,6 +33,9 @@ const tr = {
     products: 'Ürünler',
     cart: 'Sepet',
     profile: 'Profil',
+    addedToCart: 'ürün sepete eklendi',
+    emptyCart: 'Sepetiniz boş',
+    checkout: 'Ödeme',
   },
 };
 export default tr;
