@@ -36,6 +36,7 @@ const en = {
     addedToCart: 'Product added to cart',
     emptyCart: 'Your cart is empty',
     checkout: 'Checkout',
+    username: 'User name',
   },
 };
 export default en;

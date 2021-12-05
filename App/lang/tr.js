@@ -36,6 +36,7 @@ const tr = {
     addedToCart: 'ürün sepete eklendi',
     emptyCart: 'Sepetiniz boş',
     checkout: 'Ödeme',
+    username: 'Kullanıcı adı',
   },
 };
 export default tr;

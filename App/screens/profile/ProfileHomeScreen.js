@@ -31,7 +31,7 @@ const ProfileHomeScreen = ({navigation}) => {
         <AppListItem
           title={t('userInfo')}
           onPress={() => {
-            navigation.navigate(routes.USER_INFO);
+            navigation.navigate(routes.USER_INFO, {id: userData.id});
           }}
         />
         <AppListItem
