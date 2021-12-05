@@ -25,6 +25,14 @@ const en = {
     address: 'Address',
     rePassword: 'Password re-enter',
     title: 'Title',
+    name: 'Name',
+    department: 'Department',
+    price: 'Price',
+    product: 'Product',
+    addToCart: 'Add to cart',
+    products: 'Products',
+    cart: 'Cart',
+    profile: 'Profile',
   },
 };
 export default en;

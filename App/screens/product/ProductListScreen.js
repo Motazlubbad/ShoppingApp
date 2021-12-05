@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import useApi from '../../hooks/useApi';
-import {Block, Text} from '../../theme/index';
+import {Block} from '../../theme/index';
 import product from '../../api/product';
 import AppFlatList from '../../components/AppFlatList';
 import ProductListItem from '../../components/product/ProductListItem';

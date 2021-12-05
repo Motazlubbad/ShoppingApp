@@ -5,10 +5,13 @@ import {ProductsStack} from './ProductsStack';
 import {Icon} from '../theme';
 import {IconTypes} from '../theme/Icon';
 import {ProfileStack} from './ProfileStack';
+import {useTranslation} from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 
 export const BottomTabs = () => {
+  const {t} = useTranslation();
+
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -17,6 +20,7 @@ export const BottomTabs = () => {
         options={{
           headerShown: false,
           headerTitle: '',
+          title: t('products'),
           tabBarIcon: ({color, size}) => (
             <Icon
               type={IconTypes.fontAwesome}
@@ -32,6 +36,7 @@ export const BottomTabs = () => {
         options={{
           headerShown: false,
           headerTitle: '',
+          title: t('cart'),
           tabBarIcon: ({color, size}) => (
             <Icon
               type={IconTypes.fontAwesome}
@@ -48,6 +53,7 @@ export const BottomTabs = () => {
         options={{
           headerShown: false,
           headerTitle: '',
+          title: t('profile'),
           tabBarIcon: ({color, size}) => (
             <Icon
               type={IconTypes.fontAwesome}

@@ -2,18 +2,20 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-const AppImage = ({url}) => {
+const AppImage = ({url, ...otherProps}) => {
   return (
     <FastImage
-      style={{width: 200, height: 200}}
       source={{
         uri: url,
       }}
-      resizeMode={FastImage.resizeMode.contain}
+      {...otherProps}
+      resizeMode={FastImage.resizeMode.cover}
     />
   );
 };
 
 export default AppImage;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  image: {},
+});

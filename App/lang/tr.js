@@ -25,6 +25,14 @@ const tr = {
     address: 'Adres',
     rePassword: 'Şifre yeniden gir',
     title: 'Başlık',
+    name: 'Isim',
+    department: 'Departman',
+    price: 'Fiyat',
+    product: 'Ürün',
+    addToCart: 'Sepete ekle',
+    products: 'Ürünler',
+    cart: 'Sepet',
+    profile: 'Profil',
   },
 };
 export default tr;

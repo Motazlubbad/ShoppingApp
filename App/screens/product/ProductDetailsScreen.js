@@ -6,9 +6,13 @@ import AppButton from '../../components/AppButton';
 import useApi from '../../hooks/useApi';
 import {Block, Text} from '../../theme/index';
 import AppBlockWithLoading from '../../components/AppBlockWithLoading';
+import {useTranslation} from 'react-i18next';
+import {SIZES} from '../../theme/theme';
 
 const ProductDetailsScreen = ({route, navigation}) => {
   const id = route.params.id;
+  const {t} = useTranslation();
+
   const [productDetails, setProductDetails] = useState({});
   const productApi = useApi(product.getProductDetails);
   const getData = async () => {
@@ -28,26 +32,35 @@ const ProductDetailsScreen = ({route, navigation}) => {
   }, [navigation, productDetails]);
   return (
     <AppBlockWithLoading loading={productApi.loading} white>
-      <AppImage url={productDetails?.image} />
+      <AppImage
+        url={`https://source.unsplash.com/random/200x200?sig=${productDetails.id}`}
+        style={styles.image}
+      />
       <Block noflex margin>
         <Text>
-          <Text bold>Name:</Text> {productDetails?.name}
+          <Text bold>{t('name')}:</Text> {productDetails?.name}
         </Text>
         <Text>
-          <Text bold>Department:</Text> {productDetails?.department}
+          <Text bold>{t('department')}:</Text> {productDetails?.department}
         </Text>
         <Text>
-          <Text bold>Price:</Text> {productDetails?.price} TL
+          <Text bold>{t('price')}:</Text> {productDetails?.price} TL
         </Text>
         <Text>
-          <Text bold>Product:</Text> {productDetails?.product}
+          <Text bold>{t('product')}</Text> {productDetails?.product}
         </Text>
       </Block>
-      <AppButton marginTop title={'Add to cart'} />
+      <AppButton marginTop title={t('addToCart')} />
     </AppBlockWithLoading>
   );
 };
 
 export default ProductDetailsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  image: {
+    height: 150,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+  },
+});
