@@ -58,6 +58,9 @@ const ProductDetailsScreen = ({route, navigation}) => {
           AppAlert.okAlert({
             title: productDetails?.name,
             subTitle: t('addedToCart'),
+            onOk: () => {
+              navigation.goBack();
+            },
           });
           addItem(productDetails);
         }}

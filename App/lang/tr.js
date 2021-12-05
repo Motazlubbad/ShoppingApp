@@ -44,6 +44,7 @@ const tr = {
     expirationDate: 'Son kullanma tarihi',
     securityCode: 'Güvenlik kodu',
     pay: 'Öde',
+    OrderDone: 'Siparişiniz alındı',
   },
 };
 export default tr;

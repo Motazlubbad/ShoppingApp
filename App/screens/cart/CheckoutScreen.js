@@ -10,81 +10,41 @@ import AddressListItem from '../../components/profile/AddressListItem';
 import AppTextInput from '../../components/AppTextInput';
 import {SIZES} from '../../theme/theme';
 import AppButton from '../../components/AppButton';
+import {usePurchaseReducer} from '../../reducers/purchaseReducer';
+import AppAlert from '../../utils/AppAlert';
+import {useCartReducer} from '../../reducers/cartReducer';
 
 const CheckoutScreen = ({navigation}) => {
   const {itemList} = useAddressReducer();
-  const [selectedAddress, setSelectedAddress] = useState(0);
-  const [cardInfo, setCardInfo] = useState({});
+  const {itemList: cartItems, deleteAllItem} = useCartReducer();
 
-  const footerComponent = () => (
-    <Block noflex>
-      <AppTextInput
-        title={t('name')}
-        value={cardInfo.fullName}
-        onChangeText={txt => {
-          setCardInfo({
-            ...cardInfo,
-            title: txt,
-          });
-        }}
-        marginTop={SIZES.spacing16}
-      />
-      <AppTextInput
-        title={t('cardNumber')}
-        value={cardInfo.cardNumber}
-        onChangeText={txt => {
-          setCardInfo({
-            ...cardInfo,
-            cardNumber: txt,
-          });
-        }}
-        marginTop={SIZES.spacing16}
-        keyboardType={'phone-pad'}
-      />
-      <Block row space={'between'} marginHorizontal={SIZES.spacing32}>
-        <Block marginRight>
-          <AppTextInput
-            title={t('expirationDate')}
-            value={cardInfo.expirationDate}
-            noMargin
-            onChangeText={txt => {
-              setCardInfo({
-                ...cardInfo,
-                expirationDate: txt,
-              });
-            }}
-            marginTop={SIZES.spacing16}
-            keyboardType={'phone-pad'}
-          />
-        </Block>
-        <Block marginLeft>
-          <AppTextInput
-            title={t('securityCode')}
-            value={cardInfo.securityCode}
-            onChangeText={txt => {
-              setCardInfo({
-                ...cardInfo,
-                securityCode: txt,
-              });
-            }}
-            noMargin
-            marginTop={SIZES.spacing16}
-            keyboardType={'phone-pad'}
-          />
-        </Block>
-      </Block>
-      <AppButton
-        title={t('pay')}
-        marginTop={SIZES.spacing16}
-        onPress={() => {
-          navigation.goBack();
-        }}
-      />
-    </Block>
-  );
+  const {addPurchase, purchaseList} = usePurchaseReducer();
+
+  const [selectedAddress, setSelectedAddress] = useState(0);
+  const [cardInfo, setCardInfo] = useState({
+    fullName: '',
+    cardNumber: '',
+    expirationDate: '',
+    securityCode: '',
+  });
+  const doPayment = () => {
+    addPurchase({
+      id: purchaseList.lenght + 1,
+      address: selectedAddress,
+      items: cartItems,
+    });
+    deleteAllItem();
+    AppAlert.okAlert({
+      title: t('checkout'),
+      subTitle: t('OrderDone'),
+      onOk: () => {
+        navigation.goBack();
+      },
+    });
+  };
   return (
     <Block white>
-      <Block style={styles.addressList}>
+      <Block noflex style={styles.addressList}>
         <Text margin bold>
           {t('selectAddress')}
         </Text>
@@ -100,7 +60,6 @@ const CheckoutScreen = ({navigation}) => {
             />
           )}
           keyExtractor={item => item.id}
-          ListFooterComponent={footerComponent}
           ListEmptyComponent={() => (
             <EmptyAddressList
               onPress={() => {
@@ -112,10 +71,85 @@ const CheckoutScreen = ({navigation}) => {
           )}
         />
       </Block>
+      <Block noflex>
+        <AppTextInput
+          title={t('name')}
+          value={cardInfo.fullName}
+          onChangeText={txt => {
+            setCardInfo({
+              ...cardInfo,
+              fullName: txt,
+            });
+          }}
+          marginTop={SIZES.spacing16}
+        />
+        <AppTextInput
+          title={t('cardNumber')}
+          value={cardInfo.cardNumber}
+          onChangeText={txt => {
+            setCardInfo({
+              ...cardInfo,
+              cardNumber: txt,
+            });
+          }}
+          marginTop={SIZES.spacing16}
+          keyboardType={'phone-pad'}
+        />
+        <Block row space={'between'} marginHorizontal={SIZES.spacing32}>
+          <Block marginRight>
+            <AppTextInput
+              title={t('expirationDate')}
+              value={cardInfo.expirationDate}
+              noMargin
+              onChangeText={txt => {
+                setCardInfo({
+                  ...cardInfo,
+                  expirationDate: txt,
+                });
+              }}
+              marginTop={SIZES.spacing16}
+              keyboardType={'phone-pad'}
+            />
+          </Block>
+          <Block marginLeft>
+            <AppTextInput
+              title={t('securityCode')}
+              value={cardInfo.securityCode}
+              onChangeText={txt => {
+                setCardInfo({
+                  ...cardInfo,
+                  securityCode: txt,
+                });
+              }}
+              noMargin
+              marginTop={SIZES.spacing16}
+              keyboardType={'phone-pad'}
+            />
+          </Block>
+        </Block>
+        <AppButton
+          title={t('pay')}
+          marginTop={SIZES.spacing16}
+          onPress={() => {
+            if (selectedAddress === 0) {
+              AppAlert.okAlert({
+                title: t('address'),
+                subTitle: t('selectAddress'),
+              });
+            } else {
+              doPayment();
+            }
+          }}
+        />
+      </Block>
     </Block>
   );
 };
 
 export default CheckoutScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  addressList: {
+    maxHeight: '25%',
+  },
+});

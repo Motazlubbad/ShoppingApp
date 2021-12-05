@@ -44,6 +44,7 @@ const en = {
     expirationDate: 'Expiration Date',
     securityCode: 'Security Code',
     pay: 'Pay',
+    OrderDone: 'Your order has been received',
   },
 };
 export default en;
