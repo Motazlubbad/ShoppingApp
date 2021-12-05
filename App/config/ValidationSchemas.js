@@ -1,27 +1,17 @@
 import * as yup from 'yup';
-import strings from '../config/strings';
 
 export const UserSingUpSchema = yup.object().shape({
-  name: yup.string().required(strings.FILL_ALL_DATA),
-  address: yup.string().required(strings.FILL_ALL_DATA),
-  phone: yup
-    .string()
-    .required(strings.FILL_ALL_DATA)
-    .max(15, 'Telefonunuz en fazla 15 karakter olmalıdır'),
-  password: yup
-    .string()
-    .required(strings.FILL_ALL_DATA)
-    .min(6, 'Şifreniz en az 6 karakter olmalıdır'),
+  name: yup.string().required('fillAllData'),
+  address: yup.string().required('fillAllData'),
+  phone: yup.string().required('fillAllData').max(15, 'phoneError'),
+  password: yup.string().required('fillAllData').min(6, 'passwordError'),
   password_confirmation: yup
     .string()
-    .oneOf([yup.ref('password'), null], 'Şifre tekrarı eşleşmiyor.')
-    .required(strings.FILL_ALL_DATA),
+    .oneOf([yup.ref('password'), null], 'rePasswordError')
+    .required('fillAllData'),
 });
 
 export const LoginSchema = yup.object().shape({
-  email: yup.string().email('hatalı email').required(strings.FILL_ALL_DATA),
-  password: yup
-    .string()
-    .required(strings.FILL_ALL_DATA)
-    .min(6, 'Şifreniz en az 6 karakter olmalıdı'),
+  email: yup.string().email('emailError').required('fillAllData'),
+  password: yup.string().required('fillAllData').min(6, 'passwordError'),
 });

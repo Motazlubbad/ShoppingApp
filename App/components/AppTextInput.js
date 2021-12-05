@@ -3,6 +3,7 @@ import {Dimensions, StyleSheet, TextInput} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Block, Text} from '../theme';
 import {SIZES, COLORS} from '../theme/theme';
+import {useTranslation} from 'react-i18next';
 
 const AppTextInput = ({
   marginTop = 0,
@@ -12,6 +13,7 @@ const AppTextInput = ({
   ...otherProps
 }) => {
   const [text, onChangeText] = useState(null);
+  const {t} = useTranslation();
 
   return (
     <Block noflex marginHorizontal={SIZES.spacing32}>
@@ -35,12 +37,12 @@ const AppTextInput = ({
       {Array.isArray(errors) ? (
         errors.map(error => (
           <Text marginTop size={12} color={COLORS.error}>
-            {error}
+            {t(error)}
           </Text>
         ))
       ) : (
         <Text marginTop size={12} color={COLORS.error}>
-          {errors}
+          {t(errors)}
         </Text>
       )}
     </Block>

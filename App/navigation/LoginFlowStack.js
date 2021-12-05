@@ -4,10 +4,13 @@ import routes from './routes';
 import LoginScreen from '../screens/loginFlow/LoginScreen';
 import LoginFlowHome from '../screens/loginFlow/LoginFlowHome';
 import SingupScreen from '../screens/loginFlow/SingupScreen';
+import {useTranslation} from 'react-i18next';
 
 const Stack = createNativeStackNavigator();
 
 export const LoginFlowStack = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -15,7 +18,7 @@ export const LoginFlowStack = ({navigation}) => {
         component={LoginFlowHome}
         options={{
           headerShown: true,
-          title: 'Home',
+          title: '',
         }}
       />
       <Stack.Screen
@@ -23,7 +26,7 @@ export const LoginFlowStack = ({navigation}) => {
         component={LoginScreen}
         options={{
           headerShown: true,
-          title: 'Login',
+          title: t('login'),
         }}
       />
       <Stack.Screen
@@ -31,7 +34,7 @@ export const LoginFlowStack = ({navigation}) => {
         component={SingupScreen}
         options={{
           headerShown: true,
-          title: 'Sing Up',
+          title: t('singUp'),
         }}
       />
     </Stack.Navigator>
