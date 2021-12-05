@@ -1,11 +1,40 @@
-import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Block, Text} from '../../theme/index';
+import {t} from 'i18next';
+import React, {useLayoutEffect} from 'react';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import AppFlatList from '../../components/AppFlatList';
+import AppButton from '../../components/AppButton';
+import {Text, Block} from '../../theme';
+import {useAddressReducer} from '../../reducers/addressReducer';
+import EmptyAddressList from '../../components/profile/EmptyAddressList';
+import routes from '../../navigation/routes';
+import AddressListItem from '../../components/profile/AddressListItem';
 
-const UserAddressScreen = () => {
+const UserAddressScreen = ({navigation}) => {
+  const {itemList} = useAddressReducer();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Text onPress={() => navigation.navigate(routes.ADD_ADDRESS)}>
+          {t('add')}
+        </Text>
+      ),
+    });
+  }, [navigation, itemList]);
   return (
-    <Block>
-      <Text></Text>
+    <Block white>
+      <AppFlatList
+        data={itemList}
+        renderItem={({item}) => <AddressListItem item={item} />}
+        keyExtractor={item => item.id}
+        ListEmptyComponent={() => (
+          <EmptyAddressList
+            onPress={() => {
+              navigation.navigate(routes.ADD_ADDRESS);
+            }}
+          />
+        )}
+      />
     </Block>
   );
 };

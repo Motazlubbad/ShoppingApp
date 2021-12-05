@@ -6,10 +6,14 @@ pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
 target 'ShoppingApp' do
   config = use_native_modules!
+    permissions_path = '../node_modules/react-native-permissions/ios'
+
   # React Native Maps dependencies
  rn_maps_path = '../node_modules/react-native-maps'
  pod 'react-native-google-maps', :path => rn_maps_path
- 
+ pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods

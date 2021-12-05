@@ -37,6 +37,8 @@ const tr = {
     emptyCart: 'Sepetiniz boş',
     checkout: 'Ödeme',
     username: 'Kullanıcı adı',
+    emptyAddressList: 'Listeniz boş, yeni ekleyin',
+    add: 'Ekle',
   },
 };
 export default tr;

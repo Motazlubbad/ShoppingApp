@@ -25,7 +25,7 @@ const CartScreen = ({navigation}) => {
           />
         )}
         keyExtractor={item => item.id}
-        ListEmptyComponent={() => <EmptyListLayout text={t('No data')} />}
+        ListEmptyComponent={() => <EmptyListLayout text={t('emptyCart')} />}
       />
       {itemList.length > 0 && (
         <Block noflex margin>

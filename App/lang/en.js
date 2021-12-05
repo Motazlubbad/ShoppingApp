@@ -37,6 +37,8 @@ const en = {
     emptyCart: 'Your cart is empty',
     checkout: 'Checkout',
     username: 'User name',
+    emptyAddressList: 'Your list is empty, add new',
+    add: 'Add',
   },
 };
 export default en;

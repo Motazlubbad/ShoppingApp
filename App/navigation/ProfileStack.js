@@ -5,6 +5,7 @@ import ProfileHomeScreen from '../screens/profile/ProfileHomeScreen';
 import UserInfoScreen from '../screens/profile/UserInfoScreen';
 import UserAddressScreen from '../screens/profile/UserAddressScreen';
 import UserPurchasesScreen from '../screens/profile/UserPurchasesScreen';
+import AddAddressScreen from '../screens/profile/AddAddressScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,22 +15,27 @@ export const ProfileStack = ({navigation}) => {
       <Stack.Screen
         name={routes.PROFILE_SCREEN}
         component={ProfileHomeScreen}
-        options={{title: 'Welcome motaz'}}
+        options={{title: ''}}
       />
       <Stack.Screen
         name={routes.USER_INFO}
         component={UserInfoScreen}
-        options={{title: 'User Info'}}
+        options={{title: ''}}
       />
       <Stack.Screen
         name={routes.USER_ADDRESS}
         component={UserAddressScreen}
-        options={{title: 'User Address'}}
+        options={{title: ''}}
       />
       <Stack.Screen
         name={routes.USER_PURCHASES}
         component={UserPurchasesScreen}
-        options={{title: 'Purchases'}}
+        options={{title: ''}}
+      />
+      <Stack.Screen
+        name={routes.ADD_ADDRESS}
+        component={AddAddressScreen}
+        options={{title: ''}}
       />
     </Stack.Navigator>
   );
