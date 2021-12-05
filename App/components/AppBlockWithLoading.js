@@ -6,7 +6,7 @@ import AppLoading from './AppLoading';
 
 const AppBlockWithLoading = ({loading, ...props}) => {
   return (
-    <Block>
+    <Block {...props}>
       {props.children}
       {loading && <AppLoading style={AppStyles.absolute} />}
     </Block>

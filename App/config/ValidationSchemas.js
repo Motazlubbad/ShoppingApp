@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const UserSingUpSchema = yup.object().shape({
   name: yup.string().required('fillAllData'),
-  address: yup.string().required('fillAllData'),
+  title: yup.string().required('fillAllData'),
   phone: yup.string().required('fillAllData').max(15, 'phoneError'),
   password: yup.string().required('fillAllData').min(6, 'passwordError'),
   password_confirmation: yup

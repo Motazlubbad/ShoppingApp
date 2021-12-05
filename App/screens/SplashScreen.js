@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
-import AppButton from '../components/AppButton';
 import {StackActions} from '@react-navigation/routers';
 import {Block, Icon, Text} from '../theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';

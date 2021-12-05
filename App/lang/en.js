@@ -19,6 +19,12 @@ const en = {
     userAddress: 'User address',
     previousPurchases: 'Previous purchases',
     logout: 'Log out',
+    signUpInfo: 'Enter your information to Sign Up',
+    fullName: 'Full name',
+    phone: 'Phone',
+    address: 'Address',
+    rePassword: 'Password re-enter',
+    title: 'Title',
   },
 };
 export default en;

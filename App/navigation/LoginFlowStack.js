@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import routes from './routes';
 import LoginScreen from '../screens/loginFlow/LoginScreen';
 import LoginFlowHome from '../screens/loginFlow/LoginFlowHome';
-import SingupScreen from '../screens/loginFlow/SingupScreen';
+import SignupScreen from '../screens/loginFlow/SignupScreen';
 import {useTranslation} from 'react-i18next';
 
 const Stack = createNativeStackNavigator();
@@ -31,7 +31,7 @@ export const LoginFlowStack = ({navigation}) => {
       />
       <Stack.Screen
         name={routes.SINGUP_SCREEN}
-        component={SingupScreen}
+        component={SignupScreen}
         options={{
           headerShown: true,
           title: t('singUp'),

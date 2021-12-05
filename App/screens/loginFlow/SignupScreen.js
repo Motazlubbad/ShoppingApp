@@ -6,12 +6,47 @@ import AppButton from '../../components/AppButton';
 import AppTextInput from '../../components/AppTextInput';
 import {Formik} from 'formik';
 import {UserSingUpSchema} from '../../config/ValidationSchemas';
+import {useTranslation} from 'react-i18next';
+import {useAuthReducer} from '../../reducers/authReducer';
+import AppBlockWithLoading from '../../components/AppBlockWithLoading';
+import useApi from '../../hooks/useApi';
+import user from '../../api/user';
+import AppAlert from '../../utils/AppAlert';
+import StoreData from '../../utils/StoreData';
+import {StackActions} from '@react-navigation/routers';
+import routes from '../../navigation/routes';
 
-const SingupScreen = ({navigation}) => {
+const SignupScreen = ({navigation}) => {
+  const {t} = useTranslation();
+  const {setLogin} = useAuthReducer();
+  const userApi = useApi(user.newUser);
+
+  const registerUser = async data => {
+    let response = await userApi.request(data);
+    if (response.ok) {
+      setLogin(response.data.data);
+      StoreData.storeData(
+        StoreData.USER_KEY,
+        JSON.stringify(response.data.data),
+      );
+      AppAlert.okAlert({
+        onOk: () =>
+          navigation.dispatch(StackActions.replace(routes.HOME_SCREEN)),
+        title: t('singUp'),
+        subTitle: response.data.message,
+      });
+    } else {
+      AppAlert.errorAlert({
+        errorText: t('controlYourInfo'),
+        okText: t('ok'),
+      });
+    }
+  };
+
   return (
-    <Block padding white>
+    <AppBlockWithLoading padding white loading={userApi.loading}>
       <Text center marginTop size={SIZES.h2} color={COLORS.primary}>
-        Enter your information to Sing Up
+        {t('signUpInfo')}
       </Text>
       <Formik
         initialValues={{
@@ -23,7 +58,12 @@ const SingupScreen = ({navigation}) => {
           lan: '',
         }}
         onSubmit={values => {
-          console.log(values);
+          registerUser({
+            name: values.name,
+            userName: values.name,
+            password: values.password,
+            title: 'test',
+          });
         }}
         validationSchema={UserSingUpSchema}>
         {({
@@ -38,7 +78,7 @@ const SingupScreen = ({navigation}) => {
         }) => (
           <Block noflex marginTop={SIZES.spacing16}>
             <AppTextInput
-              title={'Name'}
+              title={t('fullName')}
               value={values.name}
               onChangeText={handleChange('name')}
               errors={touched.name && errors.name ? errors?.name : []}
@@ -46,7 +86,7 @@ const SingupScreen = ({navigation}) => {
             />
 
             <AppTextInput
-              title={'Phone'}
+              title={t('phone')}
               value={values.phone}
               onChangeText={handleChange('phone')}
               errors={touched.phone && errors.phone ? errors?.phone : []}
@@ -54,16 +94,16 @@ const SingupScreen = ({navigation}) => {
               marginTop={SIZES.spacing16}
             />
             <AppTextInput
-              title={'Address'}
-              value={values.address}
-              onChangeText={handleChange('address')}
-              errors={touched.address && errors.address ? errors?.address : []}
-              onBlur={() => setFieldTouched('address')}
+              title={t('title')}
+              value={values.title}
+              onChangeText={handleChange('title')}
+              errors={touched.title && errors.title ? errors?.title : []}
+              onBlur={() => setFieldTouched('title')}
               marginTop={SIZES.spacing16}
             />
 
             <AppTextInput
-              title={'password'}
+              title={t('password')}
               secureTextEntry
               value={values.password}
               onChangeText={handleChange('password')}
@@ -75,7 +115,7 @@ const SingupScreen = ({navigation}) => {
             />
 
             <AppTextInput
-              title={'password re-enter'}
+              title={t('rePassword')}
               secureTextEntry
               value={values.password_confirmation}
               onChangeText={handleChange('password_confirmation')}
@@ -89,16 +129,16 @@ const SingupScreen = ({navigation}) => {
             />
             <AppButton
               marginTop={SIZES.spacing16}
-              title={'Sing Up'}
+              title={t('singUp')}
               onPress={handleSubmit}
             />
           </Block>
         )}
       </Formik>
-    </Block>
+    </AppBlockWithLoading>
   );
 };
 
-export default SingupScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({});

@@ -19,6 +19,12 @@ const tr = {
     userAddress: 'Kullanıcı adresi',
     previousPurchases: 'önceki satın almalar',
     logout: 'oturumu kapat',
+    signUpInfo: 'Kaydolmak için bilgilerinizi girin',
+    fullName: 'Ad Soyad',
+    phone: 'Telefon',
+    address: 'Adres',
+    rePassword: 'Şifre yeniden gir',
+    title: 'Başlık',
   },
 };
 export default tr;

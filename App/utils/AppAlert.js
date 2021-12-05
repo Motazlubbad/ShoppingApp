@@ -1,7 +1,7 @@
 import {Alert} from 'react-native';
 
 const okAlert = ({title, subTitle, onOk}) =>
-  Alert.alert(title, subTitle, [{text: 'Tamam', onPress: onOk}], {
+  Alert.alert(title, subTitle, [{text: 'Ok', onPress: onOk}], {
     cancelable: false,
   });
 
