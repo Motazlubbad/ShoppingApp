@@ -1,17 +1,16 @@
 import React from 'react';
 import {StyleSheet, Image, FlatList, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
-import colors from '../../config/colors';
 import Separator from '../Separator';
 import {Text, Block} from '../../theme/index';
-import {SIZES} from '../../theme/theme';
+import {SIZES, COLORS} from '../../theme/theme';
 
 const SelectorPopUp = ({isVisible, hideModal, onSelect, itemsList}) => {
   return (
     <Modal
       isVisible={isVisible}
       avoidKeyboard={true}
-      backdropColor={colors.black}
+      backdropColor={COLORS.black}
       backdropOpacity={0.8}
       animationIn={'slideInUp'}
       animationOut={'slideOutDown'}

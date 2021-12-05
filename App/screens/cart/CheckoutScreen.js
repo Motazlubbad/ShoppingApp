@@ -13,6 +13,8 @@ import AppButton from '../../components/AppButton';
 import {usePurchaseReducer} from '../../reducers/purchaseReducer';
 import AppAlert from '../../utils/AppAlert';
 import {useCartReducer} from '../../reducers/cartReducer';
+import {Masks} from 'react-native-mask-input';
+import BaseConfig from '../../config/BaseConfig';
 
 const CheckoutScreen = ({navigation}) => {
   const {itemList} = useAddressReducer();
@@ -88,6 +90,8 @@ const CheckoutScreen = ({navigation}) => {
         <AppTextInput
           title={t('cardNumber')}
           value={cardInfo.cardNumber}
+          mask={Masks.CREDIT_CARD}
+          isMasked
           onChangeText={txt => {
             setCardInfo({
               ...cardInfo,
@@ -103,6 +107,8 @@ const CheckoutScreen = ({navigation}) => {
               title={t('expirationDate')}
               value={cardInfo.expirationDate}
               noMargin
+              mask={BaseConfig.creditCardMonthYearMask}
+              isMasked
               onChangeText={txt => {
                 setCardInfo({
                   ...cardInfo,
@@ -124,6 +130,8 @@ const CheckoutScreen = ({navigation}) => {
                 });
               }}
               noMargin
+              mask={BaseConfig.creditCarCVCMask}
+              isMasked
               marginTop={SIZES.spacing16}
               keyboardType={'phone-pad'}
             />

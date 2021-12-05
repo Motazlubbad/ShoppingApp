@@ -1,10 +1,9 @@
 import React from 'react';
 import {Animated, StyleSheet, Text, Dimensions, Platform} from 'react-native';
 
-import expoTheme from './theme';
+import expoTheme, {COLORS} from './theme';
 import {mergeTheme, getMargins, getPaddings} from './utils/index';
 import {RFValue} from 'react-native-responsive-fontsize';
-import colors from '../config/colors';
 
 /**
  * Usage:
@@ -158,7 +157,7 @@ const Typography = props => {
   const textStyles = StyleSheet.flatten([
     {
       fontSize: RFValue(SIZES.font, Dimensions.get('window').height),
-      color: colors.font,
+      color: COLORS.black,
     },
     h1 && FONTS.h1,
     h2 && FONTS.h2,

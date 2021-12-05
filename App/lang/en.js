@@ -51,6 +51,9 @@ const en = {
     distance: 'Distance',
     duration: 'Duration',
     orderTracking: 'Order Tracking',
+    drag: 'Drag the pointer',
+    tryAgain: 'An error occurred please try again',
+    error: 'Error',
   },
 };
 export default en;

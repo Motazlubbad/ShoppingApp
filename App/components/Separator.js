@@ -1,9 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {COLORS} from '../theme/theme';
 
-import colors from '../config/colors';
-
-const Separator = ({backgroundColor = colors.grey}) => {
+const Separator = ({backgroundColor = COLORS.lightGray}) => {
   return (
     <View
       style={[

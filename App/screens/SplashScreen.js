@@ -10,15 +10,22 @@ import StoreData from '../utils/StoreData';
 import {useTranslation} from 'react-i18next';
 import {useAuthReducer} from '../reducers/authReducer';
 import {useAddressReducer} from '../reducers/addressReducer';
+import {useCartReducer} from '../reducers/cartReducer';
 
 const SplashScreen = ({navigation}) => {
   const {i18n} = useTranslation();
   const {setLogin} = useAuthReducer();
   const {setAddressList} = useAddressReducer();
+  const {setCartList} = useCartReducer();
 
   const getStoredUser = async () => {
     const user = await AsyncStorage.getItem(StoreData.USER_KEY);
     const addresList = await AsyncStorage.getItem(StoreData.ADDRESS_KEY);
+    const cartList = await AsyncStorage.getItem(StoreData.CART_KEY);
+
+    if (cartList) {
+      setCartList(JSON.parse(cartList));
+    }
     if (addresList) {
       setAddressList(JSON.parse(addresList));
     }

@@ -7,6 +7,8 @@ import AppFlatList from '../../components/AppFlatList';
 import ProductListItem from '../../components/product/ProductListItem';
 import routes from '../../navigation/routes';
 import AppLoading from '../../components/AppLoading';
+import AppAlert from '../../utils/AppAlert';
+import {t} from 'i18next';
 
 const ProductListScreen = ({navigation}) => {
   const [productList, setProductList] = useState([]);
@@ -16,6 +18,14 @@ const ProductListScreen = ({navigation}) => {
     let response = await productApi.request(1);
     if (response.ok) {
       setProductList(response.data.items);
+    } else {
+      AppAlert.okAlert({
+        title: t('error'),
+        subTitle: t('tryAgain'),
+        onOk: () => {
+          getData();
+        },
+      });
     }
   };
 

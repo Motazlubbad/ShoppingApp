@@ -17,7 +17,7 @@ const tr = {
     welcomeUser: 'Hoşgeldiniz',
     userInfo: 'Kullanıcı Bilgileri',
     userAddress: 'Kullanıcı adresi',
-    previousPurchases: 'önceki satın almalar',
+    previousPurchases: 'Siparişlerim',
     logout: 'oturumu kapat',
     signUpInfo: 'Kaydolmak için bilgilerinizi girin',
     fullName: 'Ad Soyad',
@@ -51,6 +51,9 @@ const tr = {
     distance: 'Mesafe',
     duration: 'Süre',
     orderTracking: 'Sipariş takibi',
+    drag: 'İşaretçiyi sürükleyin',
+    tryAgain: 'Bir hata oluştu lütfen tekrar deneyin',
+    error: 'Hata',
   },
 };
 export default tr;

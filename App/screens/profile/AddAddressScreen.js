@@ -6,7 +6,7 @@ import {openSettings} from 'react-native-permissions';
 import AppBlockWithLoading from '../../components/AppBlockWithLoading';
 import {t} from 'i18next';
 import AppTextInput from '../../components/AppTextInput';
-import {SIZES} from '../../theme/theme';
+import {COLORS, SIZES} from '../../theme/theme';
 import AppButton from '../../components/AppButton';
 import user from '../../api/user';
 import {useAddressReducer} from '../../reducers/addressReducer';
@@ -75,7 +75,13 @@ const AddAddressScreen = ({navigation}) => {
           }}
           marginTop={SIZES.spacing16}
         />
-
+        <Text
+          size={SIZES.h2}
+          margin
+          marginTop={SIZES.spacing16}
+          color={COLORS.secondary}>
+          {t('drag')}
+        </Text>
         <MapView
           initialRegion={{
             latitude: coordinate.latitude,
@@ -115,5 +121,9 @@ const AddAddressScreen = ({navigation}) => {
 export default AddAddressScreen;
 
 const styles = StyleSheet.create({
-  map: {height: '35%', marginTop: SIZES.spacing12},
+  map: {
+    height: '35%',
+    marginTop: SIZES.spacing8,
+    marginHorizontal: SIZES.spacing12,
+  },
 });

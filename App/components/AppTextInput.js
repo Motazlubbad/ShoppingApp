@@ -4,6 +4,7 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {Block, Text} from '../theme';
 import {SIZES, COLORS} from '../theme/theme';
 import {useTranslation} from 'react-i18next';
+import MaskInput from 'react-native-mask-input';
 
 const AppTextInput = ({
   marginTop = 0,
@@ -11,6 +12,8 @@ const AppTextInput = ({
   title,
   noMargin = false,
   errors = [],
+  isMasked = false,
+  mask,
   ...otherProps
 }) => {
   const [text, onChangeText] = useState(null);
@@ -24,16 +27,33 @@ const AppTextInput = ({
         style={
           errors.length > 0 ? styles.inputContainerError : styles.inputContainer
         }>
-        <TextInput
-          placeholder={title}
-          style={styles.input}
-          onChangeText={value => {
-            onChangeText(value);
-            onChange(value);
-          }}
-          value={text}
-          {...otherProps}
-        />
+        {isMasked ? (
+          <MaskInput
+            placeholder={title}
+            style={styles.input}
+            onChangeText={value => {
+              onChangeText(value);
+              onChange(value);
+            }}
+            value={text}
+            autoCapitalize="none"
+            {...otherProps}
+            mask={mask}
+            {...otherProps}
+          />
+        ) : (
+          <TextInput
+            placeholder={title}
+            style={styles.input}
+            onChangeText={value => {
+              onChangeText(value);
+              onChange(value);
+            }}
+            value={text}
+            autoCapitalize="none"
+            {...otherProps}
+          />
+        )}
       </Block>
       {Array.isArray(errors) ? (
         errors.map(error => (

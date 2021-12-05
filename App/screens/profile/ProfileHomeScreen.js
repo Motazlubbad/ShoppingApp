@@ -17,7 +17,7 @@ const ProfileHomeScreen = ({navigation}) => {
 
   const logout = () => {
     doLogout();
-    StoreData.deleteData(StoreData.USER_KEY);
+    StoreData.deleteData(StoreData.ADDRESS_KEY);
     navigation.dispatch(StackActions.replace(routes.SPLASH_SCREEN));
   };
   useLayoutEffect(() => {

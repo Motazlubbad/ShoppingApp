@@ -20,6 +20,14 @@ const ProductDetailsScreen = ({route, navigation}) => {
     let response = await productApi.request(id);
     if (response.ok) {
       setProductDetails(response.data.data);
+    } else {
+      AppAlert.okAlert({
+        title: t('error'),
+        subTitle: t('tryAgain'),
+        onOk: () => {
+          navigation.goBack();
+        },
+      });
     }
   };
 
