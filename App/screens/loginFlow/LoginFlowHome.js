@@ -16,7 +16,7 @@ const LoginFlowHome = ({navigation}) => {
       </Text>
       <Block noflex marginTop={SIZES.spacing16}>
         <AppButton
-          title={t('Login')}
+          title={t('login')}
           onPress={() => {
             navigation.navigate(routes.LOGIN_SCREEN);
           }}
