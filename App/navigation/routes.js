@@ -16,4 +16,5 @@ export default Object.freeze({
   CART_SCREEN: 'CartScreen',
   ADD_ADDRESS: 'AddAddressScreen',
   CHECKOUT_SCREEN: 'CheckoutScreen',
+  PURCHASE_DETAILS: 'PurchaseDetailsScreen',
 });

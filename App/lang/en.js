@@ -44,7 +44,13 @@ const en = {
     expirationDate: 'Expiration Date',
     securityCode: 'Security Code',
     pay: 'Pay',
-    OrderDone: 'Your order has been received',
+    totalItem: 'Total item',
+    orderDone: 'Your order has been received',
+    noOrder: 'you do not have an order',
+    orderNo: 'Order number',
+    distance: 'Distance',
+    duration: 'Duration',
+    orderTracking: 'Order Tracking',
   },
 };
 export default en;

@@ -45,6 +45,12 @@ const tr = {
     securityCode: 'Güvenlik kodu',
     pay: 'Öde',
     OrderDone: 'Siparişiniz alındı',
+    noOrder: 'siparişiniz bulunmamaktadır',
+    orderNo: 'sipariş numarası',
+    totalItem: 'Toplam ürün',
+    distance: 'Mesafe',
+    duration: 'Süre',
+    orderTracking: 'Sipariş takibi',
   },
 };
 export default tr;

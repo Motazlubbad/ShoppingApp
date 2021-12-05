@@ -29,8 +29,10 @@ const CheckoutScreen = ({navigation}) => {
   });
   const doPayment = () => {
     addPurchase({
-      id: purchaseList.lenght + 1,
-      address: selectedAddress,
+      id: purchaseList.length + 1,
+      address: itemList.find(item =>
+        item.id == selectedAddress ? item : null,
+      ),
       items: cartItems,
     });
     deleteAllItem();

@@ -6,6 +6,7 @@ import UserInfoScreen from '../screens/profile/UserInfoScreen';
 import UserAddressScreen from '../screens/profile/UserAddressScreen';
 import UserPurchasesScreen from '../screens/profile/UserPurchasesScreen';
 import AddAddressScreen from '../screens/profile/AddAddressScreen';
+import PurchaseDetailsScreen from '../screens/profile/PurchaseDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,11 @@ export const ProfileStack = ({navigation}) => {
       <Stack.Screen
         name={routes.ADD_ADDRESS}
         component={AddAddressScreen}
+        options={{title: ''}}
+      />
+      <Stack.Screen
+        name={routes.PURCHASE_DETAILS}
+        component={PurchaseDetailsScreen}
         options={{title: ''}}
       />
     </Stack.Navigator>
