@@ -92,6 +92,7 @@ const SignupScreen = ({navigation}) => {
               errors={touched.phone && errors.phone ? errors?.phone : []}
               onBlur={() => setFieldTouched('phone')}
               marginTop={SIZES.spacing16}
+              keyboardType={'phone-pad'}
             />
             <AppTextInput
               title={t('title')}

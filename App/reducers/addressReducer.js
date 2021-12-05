@@ -5,7 +5,7 @@ const {
   actions: {addItemAction},
   reducer: addressReducer,
 } = createSlice({
-  name: 'authReducer',
+  name: 'addressReducer',
   initialState: [],
   reducers: {
     addItemAction: (state, action) => (state = [...state, action.payload]),
@@ -14,8 +14,7 @@ const {
 
 export const useAddressReducer = () => {
   const dispatch = useDispatch();
-  const itemList = useSelector(state => state.cartReducer);
-
+  const itemList = useSelector(state => state.addressReducer);
   const addItem = useCallback(
     param => dispatch(addItemAction(param)),
     [dispatch],

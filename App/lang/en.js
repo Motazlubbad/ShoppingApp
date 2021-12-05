@@ -39,6 +39,11 @@ const en = {
     username: 'User name',
     emptyAddressList: 'Your list is empty, add new',
     add: 'Add',
+    selectAddress: 'Select an address',
+    cardNumber: 'Card number',
+    expirationDate: 'Expiration Date',
+    securityCode: 'Security Code',
+    pay: 'Pay',
   },
 };
 export default en;

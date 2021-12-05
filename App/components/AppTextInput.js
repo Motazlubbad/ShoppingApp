@@ -9,6 +9,7 @@ const AppTextInput = ({
   marginTop = 0,
   onChange = () => {},
   title,
+  noMargin = false,
   errors = [],
   ...otherProps
 }) => {
@@ -16,7 +17,7 @@ const AppTextInput = ({
   const {t} = useTranslation();
 
   return (
-    <Block noflex marginHorizontal={SIZES.spacing32}>
+    <Block noflex marginHorizontal={noMargin ? 0 : SIZES.spacing32}>
       <Block
         marginTop={marginTop}
         noflex

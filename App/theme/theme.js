@@ -11,6 +11,7 @@ export const COLORS = {
   black: '#000020',
   white: '#FFFFFF',
   gray: '#535453',
+  lightGray: '#D3D3D3',
   error: '#DC3545',
   warning: '#FFE358',
   success: '#4CD964',

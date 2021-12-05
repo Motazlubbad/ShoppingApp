@@ -5,7 +5,7 @@ const {
   actions: {addItemAction},
   reducer: cartReducer,
 } = createSlice({
-  name: 'authReducer',
+  name: 'cartReducer',
   initialState: [],
   reducers: {
     addItemAction: (state, action) => (state = [...state, action.payload]),

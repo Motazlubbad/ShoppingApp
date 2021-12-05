@@ -39,6 +39,11 @@ const tr = {
     username: 'Kullanıcı adı',
     emptyAddressList: 'Listeniz boş, yeni ekleyin',
     add: 'Ekle',
+    selectAddress: 'Bir adres seçin',
+    cardNumber: 'Kart numarası',
+    expirationDate: 'Son kullanma tarihi',
+    securityCode: 'Güvenlik kodu',
+    pay: 'Öde',
   },
 };
 export default tr;

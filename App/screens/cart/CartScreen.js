@@ -29,7 +29,10 @@ const CartScreen = ({navigation}) => {
       />
       {itemList.length > 0 && (
         <Block noflex margin>
-          <AppButton title={'checkout'} />
+          <AppButton
+            title={'checkout'}
+            onPress={() => navigation.navigate(routes.CHECKOUT_SCREEN)}
+          />
         </Block>
       )}
     </Block>
