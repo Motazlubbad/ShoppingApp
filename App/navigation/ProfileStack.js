@@ -41,7 +41,7 @@ export const ProfileStack = ({navigation}) => {
       <Stack.Screen
         name={routes.PURCHASE_DETAILS}
         component={PurchaseDetailsScreen}
-        options={{title: ''}}
+        options={{title: '', headerTitleAlign: 'center'}}
       />
     </Stack.Navigator>
   );

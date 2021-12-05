@@ -16,12 +16,12 @@ export const CartStack = ({navigation}) => {
       <Stack.Screen
         name={routes.CART_SCREEN}
         component={CartScreen}
-        options={{title: t('cart')}}
+        options={{title: t('cart'), headerTitleAlign: 'center'}}
       />
       <Stack.Screen
         name={routes.CHECKOUT_SCREEN}
         component={CheckoutScreen}
-        options={{title: t('checkout')}}
+        options={{title: t('checkout'), headerTitleAlign: 'center'}}
       />
     </Stack.Navigator>
   );

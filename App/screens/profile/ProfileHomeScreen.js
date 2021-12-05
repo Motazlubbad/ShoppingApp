@@ -23,6 +23,7 @@ const ProfileHomeScreen = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: `${userData?.name}`,
+      headerTitleAlign: 'center',
     });
   }, [navigation, userData]);
   return (

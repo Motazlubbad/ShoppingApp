@@ -9,16 +9,23 @@ import {COLORS, SIZES} from '../theme/theme';
 import StoreData from '../utils/StoreData';
 import {useTranslation} from 'react-i18next';
 import {useAuthReducer} from '../reducers/authReducer';
+import {useAddressReducer} from '../reducers/addressReducer';
 
 const SplashScreen = ({navigation}) => {
   const {i18n} = useTranslation();
   const {setLogin} = useAuthReducer();
+  const {setAddressList} = useAddressReducer();
 
   const getStoredUser = async () => {
     const user = await AsyncStorage.getItem(StoreData.USER_KEY);
+    const addresList = await AsyncStorage.getItem(StoreData.ADDRESS_KEY);
+    if (addresList) {
+      setAddressList(JSON.parse(addresList));
+    }
     console.log(user);
     if (user) {
       setLogin(JSON.parse(user));
+
       navigation.dispatch(StackActions.replace(routes.HOME_SCREEN));
     } else {
       navigation.dispatch(StackActions.replace(routes.LOGIN_STACK));

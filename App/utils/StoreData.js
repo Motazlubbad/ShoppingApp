@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LANG_KEY = 'langKey';
 const USER_KEY = 'userKey';
+const ADDRESS_KEY = 'addressKey';
+const CART_KEY = 'cartKey';
 
 const storeData = async (key, value) => {
   console.log(key, value);
@@ -24,4 +26,6 @@ export default {
   deleteData,
   LANG_KEY,
   USER_KEY,
+  CART_KEY,
+  ADDRESS_KEY,
 };
